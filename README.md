@@ -105,7 +105,7 @@ localconnect/
 
 ## 👩‍💻 Author
 
-Made with ❤️ by **[Shruti Panjiyara]**
+Made by **[Shruti Panjiyara]**
 
 - GitHub: [@shrutipanjiyara](https://github.com/shrutipanjiyara)
 - LinkedIn: [Shruti Panjiyara](https://linkedin.com/in/shrutipanjiyara)
