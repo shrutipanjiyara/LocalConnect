@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LocalConnect — Find Skilled Workers Near You</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-brand">
+    <div class="brand-icon">LC</div>
+    <span class="brand-text">Local<strong>Connect</strong></span>
+  </div>
+  <div class="nav-links">
+    <a href="#workers">Find Workers</a>
+    <a href="#how">How it Works</a>
+    <a href="#dashboard">Dashboard</a>
+    <a href="#register" class="nav-cta">List Your Skills →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">🇮🇳 Pan-India Platform</div>
+  <h1 class="hero-title">
+    Find Skilled Workers<br/>
+    <span class="gradient-text">In Your Neighbourhood</span>
+  </h1>
+  <p class="hero-sub">Connect with trusted plumbers, electricians, tailors and more — instantly via WhatsApp. No app needed.</p>
+  <div class="hero-btns">
+    <a href="#workers" class="btn-primary">🔍 Find a Worker</a>
+    <a href="#register" class="btn-ghost">List Your Skills</a>
+  </div>
+  <div class="hero-stats">
+    <div class="hstat">
+      <span class="hnum" data-target="5000">0</span><span class="hplus">+</span>
+      <div class="hlbl">Workers</div>
+    </div>
+    <div class="hstat-div"></div>
+    <div class="hstat">
+      <span class="hnum" data-target="12000">0</span><span class="hplus">+</span>
+      <div class="hlbl">Jobs Done</div>
+    </div>
+    <div class="hstat-div"></div>
+    <div class="hstat">
+      <span class="hnum" data-target="50">0</span><span class="hplus">+</span>
+      <div class="hlbl">Cities</div>
+    </div>
+    <div class="hstat-div"></div>
+    <div class="hstat">
+      <span style="font-size:1.6rem;font-weight:800">4.8★</span>
+      <div class="hlbl">Avg Rating</div>
+    </div>
+  </div>
+  <div class="float-card fc1">⚡ Electrician nearby<div class="fc-sub">Koramangala, Bengaluru</div></div>
+  <div class="float-card fc2">🔧 Plumber available<div class="fc-sub">Andheri, Mumbai</div></div>
+  <div class="float-card fc3">★★★★★ Just hired!<div class="fc-sub">Tailor · Delhi</div></div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section" id="how">
+  <div class="section-label">Simple Process</div>
+  <h2 class="section-title">How LocalConnect Works</h2>
+  <div class="steps-grid">
+    <div class="step-card">
+      <div class="step-num">01</div>
+      <div class="step-icon">🔍</div>
+      <h3>Search</h3>
+      <p>Search by skill or city. Find verified workers near you instantly.</p>
+    </div>
+    <div class="step-arrow">→</div>
+    <div class="step-card">
+      <div class="step-num">02</div>
+      <div class="step-icon">💬</div>
+      <h3>Connect</h3>
+      <p>Click WhatsApp and connect directly. No middlemen, no commission.</p>
+    </div>
+    <div class="step-arrow">→</div>
+    <div class="step-card">
+      <div class="step-num">03</div>
+      <div class="step-icon">✅</div>
+      <h3>Get Work Done</h3>
+      <p>Work gets done. Rate the worker. Help your community grow.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SEARCH + CARDS -->
+<section class="search-section" id="workers">
+  <div class="search-header">
+    <div class="section-label">500+ Verified Workers</div>
+    <h2 class="section-title">Find the Right Person</h2>
+  </div>
+  <div class="search-box">
+    <div class="search-input-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Search by name, skill or area..." oninput="filterWorkers()"/>
+    </div>
+    <select id="city-select" onchange="filterWorkers()">
+      <option value="">📍 All Cities</option>
+      <option>Mumbai</option><option>Delhi</option><option>Bengaluru</option>
+      <option>Chennai</option><option>Hyderabad</option><option>Kolkata</option>
+      <option>Pune</option><option>Ahmedabad</option><option>Jaipur</option>
+      <option>Lucknow</option><option>Bhopal</option><option>Indore</option>
+      <option>Nagpur</option><option>Patna</option><option>Surat</option>
+      <option>Chandigarh</option><option>Bhubaneswar</option><option>Kochi</option>
+    </select>
+  </div>
+  <div class="pills" id="pills">
+    <button class="pill active" onclick="setCat(this,'')">All Workers</button>
+    <button class="pill" onclick="setCat(this,'Plumber')">🔧 Plumber</button>
+    <button class="pill" onclick="setCat(this,'Electrician')">⚡ Electrician</button>
+    <button class="pill" onclick="setCat(this,'Tailor')">🪡 Tailor</button>
+    <button class="pill" onclick="setCat(this,'Carpenter')">🪚 Carpenter</button>
+    <button class="pill" onclick="setCat(this,'Painter')">🎨 Painter</button>
+    <button class="pill" onclick="setCat(this,'Cook')">👨‍🍳 Cook</button>
+  </div>
+  <div class="count-row">
+    <span id="count-label">9 workers found</span>
+    <span style="color:#94a3b8;font-size:13px;margin-left:12px">All verified ✓</span>
+  </div>
+  <div class="cards-grid" id="cards-grid"></div>
+</section>
+
+
+
+<!-- DASHBOARD -->
+<section class="dashboard-section" id="dashboard">
+  <div class="section-label">Live Insights</div>
+  <h2 class="section-title">Platform Dashboard</h2>
+  <div class="dash-cards">
+    <div class="dash-card dc1"><div class="dc-icon">👷</div><div class="dc-val">5,000+</div><div class="dc-lbl">Workers Registered</div><div class="dc-trend">↑ 12 this week</div></div>
+    <div class="dash-card dc2"><div class="dc-icon">✅</div><div class="dc-val">12,000+</div><div class="dc-lbl">Jobs Completed</div><div class="dc-trend">↑ 34 this week</div></div>
+    <div class="dash-card dc3"><div class="dc-icon">🏙️</div><div class="dc-val">50+</div><div class="dc-lbl">Cities Covered</div><div class="dc-trend">Pan India</div></div>
+    <div class="dash-card dc4"><div class="dc-icon">⭐</div><div class="dc-val">4.8/5</div><div class="dc-lbl">Average Rating</div><div class="dc-trend">↑ from 4.6</div></div>
+  </div>
+  <div class="dash-bottom">
+    <div class="chart-card">
+      <div class="chart-title">Jobs by Category</div>
+      <div class="bar-chart" id="bar-chart"></div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title">Top Cities by Workers</div>
+      <div id="city-chart"></div>
+    </div>
+  </div>
+</section>
+
+<!-- REGISTER -->
+<section class="register-section" id="register">
+  <div class="reg-left">
+    <div class="section-label" style="color:#818cf8">Free Forever</div>
+    <h2 style="font-size:2.2rem;font-weight:800;color:#fff;line-height:1.2;margin:1rem 0">Register Your Skills.<br/>Grow Your Business.</h2>
+    <p style="color:#94a3b8;line-height:1.7">Join 5,000+ skilled workers who are getting jobs through LocalConnect — completely free, no commission ever.</p>
+    <div class="reg-perks">
+      <div class="perk">✅ Free digital profile</div>
+      <div class="perk">✅ Direct WhatsApp leads</div>
+      <div class="perk">✅ No commission ever</div>
+      <div class="perk">✅ Pan-India visibility</div>
+    </div>
+  </div>
+  <div class="reg-right">
+    <div class="reg-card">
+      <h3>Create Your Profile</h3>
+      <div class="form-row">
+        <div class="fg"><label>Full Name *</label><input id="r-name" placeholder="Ram Kumar"/></div>
+        <div class="fg"><label>Phone *</label><input type="tel" id="r-phone" placeholder="98765 43210"/></div>
+      </div>
+      <div class="form-row">
+        <div class="fg">
+          <label>Your Trade *</label>
+          <select id="r-trade">
+            <option value="">Select skill...</option>
+            <option>Plumber</option><option>Electrician</option><option>Tailor</option>
+            <option>Carpenter</option><option>Painter</option><option>Cook</option><option>Other</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label>City *</label>
+          <select id="r-city">
+            <option value="">Select city...</option>
+            <option>Mumbai</option><option>Delhi</option><option>Bengaluru</option>
+            <option>Chennai</option><option>Hyderabad</option><option>Kolkata</option>
+            <option>Pune</option><option>Ahmedabad</option><option>Jaipur</option>
+            <option>Lucknow</option><option>Bhopal</option><option>Indore</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+      <div class="fg"><label>Area / Locality</label><input id="r-area" placeholder="e.g. Koramangala, Andheri West..."/></div>
+      <div class="fg"><label>About Yourself</label><textarea id="r-desc" rows="3" placeholder="Years of experience, specialities, availability..."></textarea></div>
+      <button class="reg-btn" onclick="registerWorker()">Submit — It's Free ✓</button>
+      <div class="success-msg" id="success-msg">🎉 Profile submitted! We'll reach out to you shortly.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-brand">Local<strong>Connect</strong></div>
+    <div class="footer-links">
+      <a href="#workers">Find Workers</a>
+      <a href="#register">Register</a>
+      <a href="#dashboard">Dashboard</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>Connecting skilled workers with communities across India 🇮🇳</p>
+    <p>© 2024 LocalConnect. Built with ❤️ for Bharat.</p>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div id="modal-header"></div>
+    <div id="modal-body"></div>
+    <div class="modal-actions">
+      <button class="btn-wa" id="modal-wa">💬 WhatsApp</button>
+      <button class="btn-call" id="modal-call">📞 Call Now</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
